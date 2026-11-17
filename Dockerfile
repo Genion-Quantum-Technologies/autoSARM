@@ -88,9 +88,8 @@ ENV PYTHONPATH=/app/src
 EXPOSE 8030
 
 # Health check — hit the /health endpoint
-HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
-    CMD curl -f http://localhost:${PORT:-8030}/health || exit 1
+HEALTHCHECK NONE
 
 # Default: start worker (API + DB polling)
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
-CMD ["serve"]
+CMD ["python", "-m", "autosarm.steps", "--help"]

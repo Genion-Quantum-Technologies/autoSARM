@@ -1,3 +1,5 @@
+> Current runtime: [Argo scientific stages](docs/argo-runtime.md). Legacy HTTP/polling service instructions below are historical.
+
 # AutoSARM
 
 **Automatic Structure-Activity Relationship Matrix Generator**

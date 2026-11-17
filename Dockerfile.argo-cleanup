@@ -1,0 +1,9 @@
+# Preserve the verified scientific environment; remove retired service source.
+ARG BASE_IMAGE=hub.genionaitech.com/aidd/autosarm@sha256:2bb5d2206cb103774e266ce296dead7d0d71cf38a0e3d33466bf0285505be423
+FROM ${BASE_IMAGE}
+USER root
+RUN rm -rf /app/src/autosarm
+COPY src/autosarm/ /app/src/autosarm/
+COPY docker/docker-entrypoint.sh /app/docker-entrypoint.sh
+HEALTHCHECK NONE
+CMD ["python", "-m", "autosarm.steps", "--help"]
